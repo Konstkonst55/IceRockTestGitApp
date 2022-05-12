@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">IceRockTestGitApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cd_logo">Logo</string>
+    <string name="hint_auth">Personal access token</string>
+    <string name="b_sign_in">Sign In</string>
+    <string name="cd_error">Error</string>
+    <string name="title_empty_error">Empty</string>
+    <string name="empty_error">No repositories at the moment</string>
+    <string name="title_something_error">Something error</string>
+    <string name="something_error">Check your something</string>
+    <string name="b_refresh">refresh</string>
+    <string name="b_retry">retry</string>
+    <string name="title_connection_error">Connection error</string>
+    <string name="connection_error">Check your Internet connection</string>
+    <string name="cd_star">Star</string>
+    <string name="repos_stars">stars</string>
+    <string name="repos_forks">forks</string>
+    <string name="repos_watchers">watchers</string>
+    <string name="cd_license">License</string>
+    <string name="cd_forks">Forks</string>
+    <string name="cd_watchers">Watchers</string>
+    <string name="repos_license">License</string>
+</resources>
