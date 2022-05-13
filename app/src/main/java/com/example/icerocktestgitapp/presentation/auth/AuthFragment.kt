@@ -1,21 +1,20 @@
-package com.example.icerocktestgitapp
+package com.example.icerocktestgitapp.presentation.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.icerocktestgitapp.databinding.FragmentAuthBinding
-import com.example.icerocktestgitapp.databinding.FragmentRepositoriesBinding
 
-class RepositoriesFragment : Fragment() {
-    private lateinit var binding: FragmentRepositoriesBinding
+class AuthFragment : Fragment() {
+    private lateinit var binding: FragmentAuthBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentRepositoriesBinding.inflate(inflater, container, false)
+        binding = FragmentAuthBinding.inflate(inflater, container, false)
 
         return binding.root
     }

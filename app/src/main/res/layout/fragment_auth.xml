@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_dark"
-    tools:context=".AuthFragment">
+    tools:context=".presentation.auth.AuthFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glAuthStart"

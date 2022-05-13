@@ -1,8 +1,10 @@
-package com.example.icerocktestgitapp
+package com.example.icerocktestgitapp.presentation.core
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.icerocktestgitapp.R
 import com.example.icerocktestgitapp.databinding.ActivityMainBinding
+import com.example.icerocktestgitapp.presentation.auth.AuthFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
