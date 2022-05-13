@@ -1,48 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
-    android:padding="15dp"
     android:background="@color/transparent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEmptyTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/gl_start"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEmptyBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/gl_end"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEmptyStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        app:layout_constraintGuide_percent="@dimen/gl_start"/>
 
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:contentDescription="@string/cd_error"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_empty_repos_error"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEmptyEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/gl_end"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/blue_sec"
-            android:text="@string/title_empty_error"/>
+    <ImageView
+        android:id="@+id/ivEmptyError"
+        android:layout_width="@dimen/size_error_image"
+        android:layout_height="@dimen/size_error_image"
+        android:contentDescription="@string/cd_error"
+        android:src="@drawable/ic_empty_repos_error"
+        app:layout_constraintBottom_toTopOf="@id/glEmptyBottom"
+        app:layout_constraintEnd_toStartOf="@id/glEmptyEnd"
+        app:layout_constraintStart_toEndOf="@id/glEmptyStart"
+        app:layout_constraintTop_toBottomOf="@id/glEmptyTop"
+        app:layout_constraintVertical_bias="@dimen/bias_error_image" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:text="@string/empty_error"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tvEmptyErrorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/title_empty_error"
+        android:textColor="@color/red_error_light"
+        android:textSize="@dimen/font_default_size"
+        app:layout_constraintBottom_toTopOf="@id/glEmptyBottom"
+        app:layout_constraintEnd_toStartOf="@id/glEmptyEnd"
+        app:layout_constraintStart_toEndOf="@id/glEmptyStart"
+        app:layout_constraintTop_toBottomOf="@+id/ivEmptyError"
+        app:layout_constraintVertical_bias="@dimen/bias_error_name" />
+
+    <TextView
+        android:id="@+id/tvEmptyErrorDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_medium_size"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:text="@string/empty_error"
+        app:layout_constraintBottom_toTopOf="@id/glEmptyBottom"
+        app:layout_constraintEnd_toStartOf="@id/glEmptyEnd"
+        app:layout_constraintStart_toEndOf="@id/glEmptyStart"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmptyErrorName"
+        app:layout_constraintVertical_bias="@dimen/bias_error_description"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bUpdateListEmptyError"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/null_size"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:text="@string/b_refresh"
-        style="@style/green_button"/>
-</FrameLayout>
+        style="@style/green_button"
+        app:layout_constraintVertical_bias="@dimen/bias_end"
+        app:layout_constraintBottom_toTopOf="@id/glEmptyBottom"
+        app:layout_constraintEnd_toStartOf="@id/glEmptyEnd"
+        app:layout_constraintStart_toEndOf="@id/glEmptyStart"
+        app:layout_constraintTop_toBottomOf="@id/tvEmptyErrorDescription"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

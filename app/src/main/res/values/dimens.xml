@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--null-->
+    <dimen name="null_size">0dp</dimen>
+    <!--guidelines-->
+    <dimen name="gl_start">0.04</dimen>
+    <dimen name="gl_end">0.96</dimen>
+    <dimen name="gl_card_top">0.2</dimen>
+    <dimen name="gl_card_bottom">0.8</dimen>
+    <dimen name="gl_logo">0.4</dimen>
+    <!--image_sizes-->
+    <dimen name="size_logo">80dp</dimen>
+    <dimen name="size_error_image">90dp</dimen>
+    <!--fonts-->
+    <dimen name="font_default_size">16sp</dimen>
+    <dimen name="font_medium_size">14sp</dimen>
+    <dimen name="font_mini_size">12sp</dimen>
+    <!--bias-->
+    <dimen name="bias_start">0.0</dimen>
+    <dimen name="bias_end">1.0</dimen>
+    <dimen name="bias_error_image">0.35</dimen>
+    <dimen name="bias_error_name">0.1</dimen>
+    <dimen name="bias_error_description">0.02</dimen>
+    <!--margins-->
+    <dimen name="margin_default">15dp</dimen>
+    <dimen name="margin_text_card_top">5dp</dimen>
+    <dimen name="margin_top_repo_info">10dp</dimen>
+    <dimen name="margin_top_repo_flow">25dp</dimen>
+    <dimen name="margin_text_repo_info">5dp</dimen>
+    <!--paddings-->
+    <dimen name="padding_default">10dp</dimen>
+    <dimen name="padding_icon">20dp</dimen>
+    <!--other-->
+    <dimen name="corner_radius">8dp</dimen>
+</resources>

@@ -1,40 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/gray_dark">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvRepositoryName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/tvLanguage"
-            android:textColor="@color/blue_sec"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/tvLanguage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="15dp"
-            android:textSize="12sp"
-            android:layout_centerVertical="true"/>
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tvRepositoryDescription"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glCardStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/gl_start"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glCardEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/gl_end"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glCardTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/gl_card_top"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glCardBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/gl_card_bottom"/>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="@dimen/null_size"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvRepositoryName, tvLanguage"
+        app:layout_constraintStart_toEndOf="@id/glCardStart"
+        app:layout_constraintTop_toBottomOf="@id/glCardTop"
+        app:layout_constraintEnd_toStartOf="@id/glCardEnd"
+        app:flow_horizontalAlign="start"
+        app:flow_horizontalBias="@dimen/bias_start"
+        app:flow_horizontalGap="@dimen/margin_default"
+        app:flow_verticalGap="@dimen/margin_default"
+        app:flow_wrapMode="chain"
+        app:flow_horizontalStyle="spread_inside"/>
+
+    <TextView
+        android:id="@+id/tvRepositoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_sec"
+        android:textSize="@dimen/font_default_size"
+        android:maxLines="1"
+        android:text="Repositorsdf;ss'fls';dlf'sldf;yName"
+        app:layout_constraintStart_toEndOf="@id/glCardStart"
+        app:layout_constraintTop_toBottomOf="@id/glCardTop"/>
+
+    <TextView
         android:textColor="@color/white"
-        android:textSize="14sp"
-        android:visibility="gone"/>
-</LinearLayout>
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_mini_size"
+        android:maxLines="1"
+        android:text="Kotsdfdsfsdflin"
+        app:layout_constraintStart_toEndOf="@+id/tvRepositoryName"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvRepositoryName"
+        app:layout_constraintBottom_toTopOf="@id/tvRepositoryDescription"
+        app:layout_constraintEnd_toStartOf="@id/glCardEnd"
+        app:layout_constraintHorizontal_bias="@dimen/bias_end"
+        android:textAlignment="textEnd"/>
+
+    <TextView
+        android:text="sdfgsdfgs;lsdkf;lsklfkds;lfs;dlsdfgsdfgdfgfksd;lfks;dlfksd;lfk;sdkfsdf;sldkf;lskd;fk;sldkf;lskd;fdfg"
+        android:id="@+id/tvRepositoryDescription"
+        android:layout_width="@dimen/null_size"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_medium_size"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/margin_text_card_top"
+        app:layout_constraintStart_toEndOf="@id/glCardStart"
+        app:layout_constraintTop_toBottomOf="@id/tvLanguage"
+        app:layout_constraintBottom_toTopOf="@id/glCardBottom"
+        app:layout_constraintEnd_toStartOf="@id/glCardEnd"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

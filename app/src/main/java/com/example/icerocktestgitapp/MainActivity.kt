@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.flMain, RepositoryFragmentView())
+            .add(R.id.clMain, AuthFragment())
             .addToBackStack(null)
             .commit()
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,29 +8,38 @@
     tools:context=".RepositoryFragmentView"
     android:background="@color/gray_dark">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/svReposMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            style="@style/text_button"
-            app:icon="@drawable/ic_link"
-            android:paddingHorizontal="15dp"
-            app:rippleColor="@color/blue_ripple"
-            app:cornerRadius="0dp"
-            app:iconTint="@color/blue_sec"
-            android:textAlignment="viewStart"
-            android:text="sdfmglkdjslf;kgsd;fkgs;ldfkg" />
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:padding="15dp">
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/gl_start"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/gl_end"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bLinkGit"
+                style="@style/link_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:text="https://github.com/Konstkonst55"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivLicenseIcon"
@@ -37,145 +47,211 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/cd_license"
                 android:src="@drawable/ic_license"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"/>
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/bLinkGit"
+                android:layout_marginTop="@dimen/margin_top_repo_info"/>
 
             <TextView
                 android:id="@+id/tvLicenseTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/repos_license"
-                android:textSize="16sp"
-                android:layout_toEndOf="@+id/ivLicenseIcon"
+                android:layout_marginTop="@dimen/margin_top_repo_info"
+                android:layout_marginStart="@dimen/margin_default"
+                android:text="@string/title_repos_license"
                 android:textColor="@color/white"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"/>
+                android:textSize="@dimen/font_default_size"
+                app:layout_constraintStart_toEndOf="@+id/ivLicenseIcon"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvLicenseName" />
 
             <TextView
                 android:id="@+id/tvLicenseName"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/null_size"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="30dp"
-                android:layout_toEndOf="@id/tvLicenseTitle"
-                android:textAlignment="textEnd"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_top_repo_info"
                 android:text="Apache 2.0"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
-        </RelativeLayout>
+                android:textSize="@dimen/font_default_size"
+                app:layout_constraintTop_toBottomOf="@id/bLinkGit"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintHorizontal_bias="@dimen/bias_end"
+                app:layout_constraintStart_toEndOf="@id/tvLicenseTitle" />
 
-        <com.google.android.flexbox.FlexboxLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:flexWrap="wrap"
-            android:paddingHorizontal="15dp"
-            android:layout_marginTop="15dp"
-            app:alignItems="center"
-            android:layout_gravity="center"
-            app:alignContent="center">
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clStars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp">
+                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintEnd_toEndOf="@id/glEnd">
 
                 <ImageView
+                    android:id="@+id/ivReposStars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/cd_star"
+                    android:contentDescription="@string/cd_forks"
                     android:src="@drawable/ic_star"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:id="@+id/tvReposStars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/font_default_size"
                     android:textColor="@color/yellow_star"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="@dimen/margin_text_repo_info"
+                    app:layout_constraintStart_toEndOf="@+id/ivReposStars"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
+                    android:id="@+id/tvReposStarsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:textSize="16sp"
+                    android:layout_marginStart="@dimen/margin_text_repo_info"
+                    android:textSize="@dimen/font_default_size"
                     android:textColor="@color/white"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/repos_stars"/>
-            </LinearLayout>
+                    android:text="@string/repos_stars"
+                    app:layout_constraintStart_toEndOf="@+id/tvReposStars"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clForks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp">
+                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintEnd_toEndOf="@id/glEnd">
 
                 <ImageView
+                    android:id="@+id/ivReposForks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/cd_forks"
                     android:src="@drawable/ic_fork"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:id="@+id/tvReposForks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/font_default_size"
                     android:textColor="@color/green_forks"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="@dimen/margin_text_repo_info"
+                    app:layout_constraintStart_toEndOf="@+id/ivReposForks"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
+                    android:id="@+id/tvReposForksLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:textSize="16sp"
+                    android:layout_marginStart="@dimen/margin_text_repo_info"
+                    android:textSize="@dimen/font_default_size"
                     android:textColor="@color/white"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/repos_forks"/>
-            </LinearLayout>
+                    android:text="@string/repos_forks"
+                    app:layout_constraintStart_toEndOf="@+id/tvReposForks"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clWatchers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp">
+                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintEnd_toEndOf="@id/glEnd">
 
                 <ImageView
+                    android:id="@+id/ivReposWatchers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/cd_watchers"
+                    android:contentDescription="@string/cd_forks"
                     android:src="@drawable/ic_watch"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:id="@+id/tvReposWatchers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/font_default_size"
                     android:textColor="@color/blue_eye"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"/>
+                    android:layout_marginStart="@dimen/margin_text_repo_info"
+                    app:layout_constraintStart_toEndOf="@+id/ivReposWatchers"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
+                    android:id="@+id/tvReposWatchersLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:textSize="16sp"
+                    android:layout_marginStart="@dimen/margin_text_repo_info"
+                    android:textSize="@dimen/font_default_size"
                     android:textColor="@color/white"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/repos_watchers"/>
-            </LinearLayout>
-        </com.google.android.flexbox.FlexboxLayout>
-    </LinearLayout>
-</ScrollView>
+                    android:text="@string/repos_watchers"
+                    app:layout_constraintStart_toEndOf="@+id/tvReposWatchers"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/fInfo"
+                android:layout_width="@dimen/null_size"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_repo_flow"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
+                app:constraint_referenced_ids="clForks, clWatchers, clStars"
+                app:flow_horizontalAlign="start"
+                app:flow_horizontalBias="@dimen/bias_start"
+                app:flow_horizontalGap="@dimen/margin_default"
+                app:flow_verticalGap="@dimen/margin_default"
+                app:flow_wrapMode="chain"
+                app:flow_horizontalStyle="spread_inside"/>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="
+                ivLicenseIcon,
+                tvLicenseName,
+                tvLicenseTitle,
+                bLinkGit,
+                clStars,
+                clWatchers,
+                clForks"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pbReposView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/svReposMain"
+        android:indeterminate="true"
+        app:indicatorColor="@color/white"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
