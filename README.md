@@ -37,5 +37,9 @@
 - Обеспечить поддержку Android API 21
 
 ## 🖼 Дизайн
-- Ссылка на макет в Figma: <https://www.figma.com/file/Mh3ga5XAzyJNCY87NBp01G/Git_test-Android?node-id=2113%3A3136>
-- Ссылка на кликабельный прототип: <https://www.figma.com/proto/Mh3ga5XAzyJNCY87NBp01G/Git_test-Android?node-id=4%3A600&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=4%3A645>
+- [Дизайн]
+- [Кликабельный прототип]
+
+[//]: links
+[Дизайн]: https://www.figma.com/file/Mh3ga5XAzyJNCY87NBp01G/Git_test-Android?node-id=2113%3A3136
+[Кликабельный прототип]: https://www.figma.com/proto/Mh3ga5XAzyJNCY87NBp01G/Git_test-Android?node-id=4%3A600&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=4%3A645
