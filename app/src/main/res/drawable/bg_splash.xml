@@ -5,7 +5,7 @@
             <item>
                 <color android:color="@color/gray_dark"/>
             </item>
-            <item android:drawable="@drawable/ic_splash"/>
+            <item android:drawable="@drawable/ic_splash" android:gravity="center"/>
         </layer-list>
     </item>
 </selector>
