@@ -1,29 +1,17 @@
-
 plugins {
-    id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
-}
-
-object LibraryVersions{
-    const val nav_version = "2.4.2"
-    const val legacy_version = "1.0.0"
-    const val junit_version = "4.13.2"
-    const val runner_version = "1.0.2"
-    const val espresso_version = "3.0.2"
-    const val constraint_version = "2.0.4"
-    const val material_version = "1.6.0"
+    id("com.android.application")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Deps.defaultConfigVersions.compileSdkVersion
 
     defaultConfig {
         applicationId = "com.example.icerocktestgitapp"
-        minSdk = 21
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Deps.defaultConfigVersions.minSdkVersion
+        targetSdk = Deps.defaultConfigVersions.targetSdkVersion
+        versionCode = Deps.defaultConfigVersions.versionCode
+        versionName = Deps.defaultConfigVersions.versionName
 
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -48,17 +36,15 @@ android {
 }
 
 dependencies {
-
-
-    implementation("androidx.legacy:legacy-support-v4:${LibraryVersions.legacy_version}")
-    testImplementation("junit:junit:${LibraryVersions.junit_version}")
-    androidTestImplementation("com.android.support.test:runner:${LibraryVersions.runner_version}")
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:${LibraryVersions.espresso_version}")
+    implementation(Deps.androidxDependecies.androidxLegacy)
+    testImplementation(Deps.junit.junit)
+    androidTestImplementation(Deps.testImplementations.runner)
+    androidTestImplementation(Deps.testImplementations.espresso)
     //constraint_layout
-    implementation("com.android.support.constraint:constraint-layout:${LibraryVersions.constraint_version}")
+    implementation(Deps.androidxDependecies.constraintLayout)
     //material
-    implementation("com.google.android.material:material:${LibraryVersions.material_version}")
+    implementation(Deps.materialDependecies.materialDesign)
     //navigation_components
-    implementation("androidx.navigation:navigation-fragment-ktx:${LibraryVersions.nav_version}")
-    implementation("androidx.navigation:navigation-ui-ktx:${LibraryVersions.nav_version}")
+    implementation(Deps.navigationDependencies.navFragment)
+    implementation(Deps.navigationDependencies.navUI)
 }
