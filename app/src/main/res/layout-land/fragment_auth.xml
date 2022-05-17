@@ -22,6 +22,13 @@
         app:layout_constraintGuide_percent="@dimen/gl_end"/>
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glAuthTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/gl_start"/>
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glAuthBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,11 +36,11 @@
         app:layout_constraintGuide_percent="@dimen/gl_end"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glAuthTop"
+        android:id="@+id/glCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@dimen/gl_logo"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35"/>
 
     <ImageView
         android:id="@+id/ivAuthLogo"
@@ -43,20 +50,20 @@
         android:src="@drawable/ic_main_logo"
         android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/glAuthTop"
+        app:layout_constraintBottom_toTopOf="@id/bSignIn"
         app:layout_constraintStart_toEndOf="@id/glAuthStart"
-        app:layout_constraintEnd_toStartOf="@id/glAuthEnd"/>
+        app:layout_constraintEnd_toStartOf="@id/glCenter"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvUserToken"
         android:layout_width="@dimen/null_size"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
-        android:layout_marginTop="40dp"
         style="@style/text_layout"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintStart_toEndOf="@id/glAuthStart"
+        app:layout_constraintStart_toEndOf="@+id/glCenter"
         app:layout_constraintEnd_toStartOf="@id/glAuthEnd"
-        app:layout_constraintTop_toBottomOf="@id/ivAuthLogo">
+        app:layout_constraintBottom_toTopOf="@id/bSignIn"
+        app:layout_constraintTop_toBottomOf="@id/glAuthTop">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

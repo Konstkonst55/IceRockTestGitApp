@@ -7,7 +7,7 @@
     <dimen name="gl_end">0.96</dimen>
     <dimen name="gl_card_top">0.2</dimen>
     <dimen name="gl_card_bottom">0.8</dimen>
-    <dimen name="gl_logo">0.4</dimen>
+    <dimen name="gl_logo">0.3</dimen>
     <!--image_sizes-->
     <dimen name="size_logo">80dp</dimen>
     <dimen name="size_error_image">90dp</dimen>

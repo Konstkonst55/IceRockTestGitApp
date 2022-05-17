@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun navigateRepoListToRepoDetails(){
-        val action =RepositoriesListFragmentDirections.actionRepositoriesListFragmentToRepositoryInfoFragment()
+        val action = RepositoriesListFragmentDirections.actionRepositoriesListFragmentToRepositoryInfoFragment()
         navController.navigate(action)
     }
 }
