@@ -1,6 +1,10 @@
 plugins {
-    kotlin("android")
+    id ("org.jetbrains.kotlin.android")
     id("com.android.application")
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
+    id ("kotlinx-serialization")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -47,4 +51,12 @@ dependencies {
     //navigation_components
     implementation(Deps.navigationDependencies.navFragment)
     implementation(Deps.navigationDependencies.navUI)
+    //retrofit
+    implementation(Deps.retrofitDependencies.retrofit)
+    implementation(Deps.retrofitDependencies.retrofitConverter)
+    //hilt
+    implementation(Deps.hiltDependencies.hilt)
+    kapt(Deps.hiltDependencies.hilt_kapt)
+    //kotlin
+    implementation(Deps.kotlinDependecies.kotlinxSerialization)
 }

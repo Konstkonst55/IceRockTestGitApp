@@ -7,6 +7,12 @@ class Deps {
         const val espresso_version = "3.0.2"
         const val constraint_version = "2.1.3"
         const val material_version = "1.6.0"
+        const val hilt_version = "2.42"
+        const val retrofit_version = "2.9.0"
+        const val retrofit_converter = "0.8.0"
+
+        const val kotlin_version = "1.6.21"
+        const val kotlin_serialization_version = "1.3.3"
     }
 
     object defaultConfigVersions{
@@ -15,6 +21,15 @@ class Deps {
         const val targetSdkVersion = 32
         const val versionCode = 1
         const val versionName = "1.0"
+    }
+
+    object kotlinDependecies{
+        const val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlin_serialization_version}"
+    }
+
+    object hiltDependencies{
+        const val hilt = "com.google.dagger:hilt-android:${Versions.hilt_version}"
+        const val hilt_kapt = "com.google.dagger:hilt-compiler:${Versions.hilt_version}"
     }
 
     object androidxDependecies{
@@ -40,15 +55,8 @@ class Deps {
         const val espresso = "com.android.support.test.espresso:espresso-core:${Versions.espresso_version}"
     }
 
-    object hiltDependecies{
-        //todo
-    }
-
-    object kotlinDependencies{
-        //todo
-    }
-
     object retrofitDependencies{
-        //todo
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit_version}"
+        const val retrofitConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofit_converter}"
     }
 }
