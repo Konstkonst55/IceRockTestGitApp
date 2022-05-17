@@ -1,9 +1,14 @@
-package com.example.icerocktestgitapp.model.preferences
+package com.example.icerocktestgitapp.data.preferences
 
 import android.content.Context
-import com.example.icerocktestgitapp.model.utils.Constants
+import com.example.icerocktestgitapp.data.utils.Constants
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class KeyValueStorage(context: Context) {
+class KeyValueStorage @Inject constructor(
+    @ApplicationContext
+    context: Context
+) {
     private val prefs = context.getSharedPreferences(Constants.PREFS_NAME_KEY, Context.MODE_PRIVATE)
 
     var authToken: String?

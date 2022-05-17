@@ -1,4 +1,4 @@
-package com.example.icerocktestgitapp.model.utils
+package com.example.icerocktestgitapp.data.utils
 
 object Constants {
     const val TOKEN_KEY = "token_key"
