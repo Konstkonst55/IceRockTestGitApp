@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.icerocktestgitapp.databinding.FragmentAuthBinding
+import com.example.icerocktestgitapp.presentation.core.MainActivity
+import com.example.icerocktestgitapp.utils.navigateToRepoList
 
 class AuthFragment : Fragment() {
     private lateinit var binding: FragmentAuthBinding
@@ -15,6 +17,8 @@ class AuthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAuthBinding.inflate(inflater, container, false)
+
+        binding.bSignIn.setOnClickListener{ this.navigateToRepoList() }
 
         return binding.root
     }
