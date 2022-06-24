@@ -54,6 +54,10 @@ dependencies {
     //retrofit
     implementation(Deps.retrofitDependencies.retrofit)
     implementation(Deps.retrofitDependencies.retrofitConverter)
+    //lifecycle
+    implementation(Deps.lifecycleDependecies.livedata)
+    implementation(Deps.lifecycleDependecies.runtime)
+    implementation(Deps.lifecycleDependecies.viewmodel)
     //hilt
     implementation(Deps.hiltDependencies.hilt)
     kapt(Deps.hiltDependencies.hilt_kapt)

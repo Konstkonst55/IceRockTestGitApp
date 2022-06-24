@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toStartOf="@id/glCenter"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tvUserToken"
+        android:id="@+id/tilUserToken"
         android:layout_width="@dimen/null_size"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
@@ -78,9 +78,23 @@
         android:id="@+id/bSignIn"
         android:layout_width="@dimen/null_size"
         android:layout_height="wrap_content"
+        android:minHeight="@dimen/pb_size"
+        style="@style/green_button"
+        android:text="@string/b_sign_in"
         app:layout_constraintStart_toEndOf="@id/glAuthStart"
         app:layout_constraintEnd_toStartOf="@id/glAuthEnd"
-        app:layout_constraintBottom_toBottomOf="@id/glAuthBottom"
-        style="@style/green_button"
-        android:text="@string/b_sign_in"/>
+        app:layout_constraintBottom_toBottomOf="@id/glAuthBottom"/>
+
+    <ProgressBar
+        android:id="@+id/pbAuth"
+        android:layout_width="@dimen/null_size"
+        android:layout_height="@dimen/null_size"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/white"
+        android:elevation="2dp"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="@id/bSignIn"
+        app:layout_constraintStart_toStartOf="@id/bSignIn"
+        app:layout_constraintBottom_toBottomOf="@id/bSignIn"
+        app:layout_constraintTop_toTopOf="@id/bSignIn"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

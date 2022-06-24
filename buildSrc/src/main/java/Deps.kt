@@ -10,6 +10,7 @@ class Deps {
         const val hilt_version = "2.42"
         const val retrofit_version = "2.9.0"
         const val retrofit_converter = "0.8.0"
+        const val lifecycle_version = "2.4.1"
 
         const val kotlin_version = "1.6.21"
         const val kotlin_serialization_version = "1.3.3"
@@ -58,5 +59,11 @@ class Deps {
     object retrofitDependencies{
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit_version}"
         const val retrofitConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofit_converter}"
+    }
+
+    object lifecycleDependecies{
+        const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
+        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_version}"
+        const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
     }
 }

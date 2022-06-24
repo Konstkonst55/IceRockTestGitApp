@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/authFragment"
@@ -12,7 +12,12 @@
         tools:layout="@layout/fragment_auth" >
         <action
             android:id="@+id/action_authFragment_to_repositoriesListFragment"
-            app:destination="@id/repositoriesListFragment" />
+            app:destination="@id/repositoriesListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popUpTo="@id/authFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/repositoriesListFragment"
@@ -22,16 +27,40 @@
         <action
             android:id="@+id/action_repositoriesListFragment_to_repositoryInfoFragment"
             app:destination="@id/repositoryInfoFragment"
-            app:enterAnim="@android:anim/slide_in_left" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"/>
     </fragment>
     <fragment
         android:id="@+id/repositoryInfoFragment"
         android:name="com.example.icerocktestgitapp.presentation.repoinfo.RepositoryInfoFragment"
         android:label="fragment_repository_view"
         tools:layout="@layout/fragment_repository_view" >
+        <argument
+            android:name="idRepo"
+            app:argType="integer"/>
+        <argument
+            android:name="NameRepo"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.icerocktestgitapp.presentation.splash.splashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_repositoryInfoFragment_to_repositoriesListFragment"
+            android:id="@+id/action_splashFragment_to_authFragment"
+            app:destination="@id/authFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splashFragment_to_repositoriesListFragment"
             app:destination="@id/repositoriesListFragment"
-            app:enterAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
