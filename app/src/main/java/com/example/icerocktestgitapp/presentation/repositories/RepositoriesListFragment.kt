@@ -1,5 +1,6 @@
 package com.example.icerocktestgitapp.presentation.repositories
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -30,13 +31,18 @@ class RepositoriesListFragment : Fragment() {
     private val viewModel by viewModels<RepositoriesListViewModel>()
     private lateinit var adapter: RepoAdapter
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRepositoriesBinding.inflate(inflater, container, false)
 
-        binding.rvRepositories.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.rvRepositories.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL).apply {
+                setDrawable(resources.getDrawable(R.drawable.item_divider, requireContext().theme))
+            }
+        )
 
         (requireActivity() as MainActivity).supportActionBar?.run{
             show()
@@ -70,11 +76,20 @@ class RepositoriesListFragment : Fragment() {
             with(binding){
                 if(state is RepositoriesListViewModel.State.Loaded) adapter.submitList(state.repos)
 
+                if(state is RepositoriesListViewModel.State.Error) {
+                    iSomethingError.root.visibility = View.VISIBLE
+                    iSomethingError.tvSomethingErrorDescription.text = state.error
+                } else { iSomethingError.root.visibility = View.GONE }
+
                 pbRepoList.visibility = if(state is RepositoriesListViewModel.State.Loading) View.VISIBLE else View.GONE
 
                 iEmptyError.root.visibility = if(state is RepositoriesListViewModel.State.Empty) View.VISIBLE else View.GONE
 
-                iSomethingError.root.visibility = if(state is RepositoriesListViewModel.State.Error) View.VISIBLE else View.GONE
+                iConnectionError.root.visibility = if(state is RepositoriesListViewModel.State.ConnectionError) View.VISIBLE else View.GONE
+
+                iEmptyError.bUpdateListEmptyError.setOnClickListener { viewModel.getRepoList() }
+                iSomethingError.bUpdateListSomethingError.setOnClickListener { viewModel.getRepoList() }
+                iConnectionError.bUpdateListConnectionError.setOnClickListener { viewModel.getRepoList() }
             }
         }
     }

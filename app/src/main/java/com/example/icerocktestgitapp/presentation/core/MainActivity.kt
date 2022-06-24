@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 navController.popBackStack(R.id.repositoriesListFragment,true)
                 navController.navigate(R.id.authFragment)
+                hideProgressBar()
             }
             android.R.id.home ->{
                 onBackPressed()
@@ -94,14 +96,23 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    private fun hideProgressBar(){
+        binding.pbMain.visibility = View.GONE
+    }
+
     private fun authorizationWithTokenFromStorage(){
         lifecycleScope.launch{
             when(val res = auth.signIn()){
-                is Resource.Success -> navigateSplashToRepoList()
+                is Resource.Success -> {
+                    navigateSplashToRepoList()
+                    hideProgressBar()
+                }
                 is Resource.Error -> if (res.code == Constants.UNAUTHORIZED_CODE){
                     navController.popBackStack(R.id.authFragment,true)
                     navigateToAuth()
+                    hideProgressBar()
                 }else{
+                    hideProgressBar()
                     navigateSplashToRepoList()
                 }
             }

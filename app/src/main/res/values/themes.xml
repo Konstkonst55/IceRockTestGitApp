@@ -60,4 +60,22 @@
         <item name="android:indeterminateTint">@color/white</item>
         <item name="android:elevation">2dp</item>
     </style>
+
+    <style name="alert_dialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:windowBackground">@color/gray_dark</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/alert_dialog_pos_b</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/alert_dialog_neg_b</item>
+        <item name="buttonBarNeutralButtonStyle">@style/alert_dialog_pos_b</item>
+    </style>
+
+    <style name="alert_dialog_pos_b" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/blue_sec</item>
+        <item name="rippleColor">@color/blue_ripple</item>
+    </style>
+
+    <style name="alert_dialog_neg_b" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/red_error</item>
+        <item name="rippleColor">@color/red_ripple</item>
+    </style>
 </resources>

@@ -9,6 +9,7 @@ import com.example.icerocktestgitapp.data.repository.IReposDetails
 import com.example.icerocktestgitapp.data.resources.Resource
 import com.example.icerocktestgitapp.presentation.auth.AuthViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -27,14 +28,18 @@ class RepositoriesListViewModel @Inject constructor(
         getRepoList()
     }
 
-    private fun getRepoList() {
+    fun getRepoList() {
         viewModelScope.launch {
+            _state.value = State.Loading
             when (val res = repo.getRepositories()){
                 is Resource.Success -> {
-                    if (res.data!!.isEmpty()) _state.postValue(State.Empty)
-                    else _state.postValue(State.Loaded(res.data))
+                    if (res.data!!.isEmpty()) _state.value = State.Empty
+                    else _state.value = State.Loaded(res.data)
                 }
-                is Resource.Error -> _state.value = State.Error(res.message!!)
+                is Resource.Error -> {
+                    if(res.message == "No internet connection") _state.value = State.ConnectionError
+                    else _state.value = State.Error(res.message!!)
+                }
             }
         }
     }
@@ -44,5 +49,6 @@ class RepositoriesListViewModel @Inject constructor(
         data class Loaded(val repos: List<Repo>) : State
         data class Error(val error: String) : State
         object Empty : State
+        object ConnectionError: State
     }
 }

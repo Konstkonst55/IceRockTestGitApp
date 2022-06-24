@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/gray_dark">
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:paddingTop="@dimen/card_top_bottom"
+    android:paddingBottom="@dimen/card_top_bottom">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glCardStart"
@@ -21,56 +25,39 @@
         app:layout_constraintGuide_percent="@dimen/gl_end"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glCardTop"
+        android:id="@+id/glCenterRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@dimen/gl_card_top"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glCardBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="@dimen/gl_card_bottom"/>
-
-    <androidx.constraintlayout.helper.widget.Flow
-        android:layout_width="@dimen/null_size"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tvRepositoryName, tvLanguage"
-        app:layout_constraintStart_toEndOf="@id/glCardStart"
-        app:layout_constraintTop_toBottomOf="@id/glCardTop"
-        app:layout_constraintEnd_toStartOf="@id/glCardEnd"
-        app:flow_horizontalAlign="start"
-        app:flow_horizontalBias="@dimen/bias_start"
-        app:flow_horizontalGap="@dimen/margin_default"
-        app:flow_verticalGap="@dimen/margin_default"
-        app:flow_wrapMode="chain"
-        app:flow_horizontalStyle="spread_inside"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
 
     <TextView
         android:id="@+id/tvRepositoryName"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/null_size"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
         android:textColor="@color/blue_sec"
         android:textSize="@dimen/font_default_size"
-        android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@id/glCardStart"
-        app:layout_constraintTop_toBottomOf="@id/glCardTop"/>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/glCenterRight"
+        app:layout_constraintStart_toEndOf="@+id/glCardStart"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textColor="@color/white"
         android:id="@+id/tvLanguage"
-        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_width="@dimen/null_size"
         android:layout_height="wrap_content"
         android:textSize="@dimen/font_mini_size"
+        android:ellipsize="end"
         android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@+id/tvRepositoryName"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvRepositoryName"
-        app:layout_constraintBottom_toTopOf="@id/tvRepositoryDescription"
-        app:layout_constraintEnd_toStartOf="@id/glCardEnd"
-        app:layout_constraintHorizontal_bias="@dimen/bias_end"
-        android:textAlignment="textEnd"/>
+        android:singleLine="true"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toStartOf="@+id/glCardEnd"
+        app:layout_constraintStart_toEndOf="@+id/glCenterRight"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tvRepositoryDescription"
@@ -78,10 +65,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="@dimen/font_medium_size"
-        android:visibility="visible"
-        android:layout_marginTop="@dimen/margin_text_card_top"
+        android:layout_marginTop="@dimen/margin_top_repo_info"
         app:layout_constraintStart_toEndOf="@id/glCardStart"
-        app:layout_constraintTop_toBottomOf="@id/tvLanguage"
-        app:layout_constraintBottom_toTopOf="@id/glCardBottom"
+        app:layout_constraintTop_toBottomOf="@id/tvRepositoryName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/glCardEnd"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,10 +9,11 @@
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/drawable/ic_link.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/drawable/ic_main_logo.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/drawable/ic_splash.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/drawable/item_divider.xml" value="0.21" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/drawable/text_field_line.xml" value="0.17401315789473684" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout-land/fragment_auth.xml" value="0.1881145788798632" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
-        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/card_repository.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/card_repository.xml" value="0.4" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/connection_error_layout.xml" value="0.1" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/empty_error_layout.xml" value="0.1" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/error_layout.xml" value="0.2128205128205128" />
@@ -21,7 +22,7 @@
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_repository.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_repository_view.xml" value="0.2" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_splash.xml" value="0.2129115006412997" />
-        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/something_error_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/something_error_layout.xml" value="0.4" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/menu/toolbar_menu.xml" value="0.2129115006412997" />
       </map>
     </option>

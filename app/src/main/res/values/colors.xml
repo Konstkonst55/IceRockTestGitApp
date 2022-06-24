@@ -9,11 +9,13 @@
     <color name="gray_light">#21262D</color>
     <color name="blue_sec">#58A6FF</color>
     <color name="red_error">#B00020</color>
+    <color name="red_button">#FF5858</color>
     <color name="red_error_light">#CB4F4F</color>
     <color name="green">#438440</color>
     <color name="yellow_star">#FAD876</color>
     <color name="green_forks">#6ED370</color>
     <color name="blue_eye">#9CFFF9</color>
     <color name="blue_ripple">#4D58A6FF</color>
+    <color name="red_ripple">#4DFF5858</color>
     <color name="gray_text_field">#80FFFFFF</color>
 </resources>
