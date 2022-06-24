@@ -5,6 +5,8 @@
         <item name="colorPrimaryDark">@color/blue_sec</item>
         <item name="colorAccent">@color/blue_sec</item>
         <item name="android:statusBarColor">@color/gray</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="green_button" parent="Theme.MaterialComponents.Light">
@@ -51,5 +53,11 @@
     <style name="splash_theme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_splash</item>
         <item name="android:statusBarColor">@color/gray_dark</item>
+    </style>
+
+    <style name="pb" parent="Theme.MaterialComponents.Light">
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTint">@color/white</item>
+        <item name="android:elevation">2dp</item>
     </style>
 </resources>

@@ -25,4 +25,6 @@
     <string name="repos_stars">stars</string>
     <string name="repos_forks">forks</string>
     <string name="repos_watchers">watchers</string>
+    <!--headers-->
+    <string name="repo_list_header">Repositories</string>
 </resources>

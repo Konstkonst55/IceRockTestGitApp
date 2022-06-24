@@ -16,11 +16,13 @@
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/connection_error_layout.xml" value="0.1" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/empty_error_layout.xml" value="0.1" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/error_layout.xml" value="0.2128205128205128" />
-        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_auth.xml" value="0.128" />
+        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_auth.xml" value="0.2129115006412997" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_repositories.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_repository.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_repository_view.xml" value="0.2" />
+        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/fragment_splash.xml" value="0.2129115006412997" />
         <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/layout/something_error_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Acer/IceRockTestGitApp/app/src/main/res/menu/toolbar_menu.xml" value="0.2129115006412997" />
       </map>
     </option>
   </component>
