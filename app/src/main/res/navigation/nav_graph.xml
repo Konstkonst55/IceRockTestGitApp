@@ -40,7 +40,7 @@
             android:name="idRepo"
             app:argType="integer"/>
         <argument
-            android:name="NameRepo"
+            android:name="nameRepo"
             app:argType="string"/>
     </fragment>
     <fragment

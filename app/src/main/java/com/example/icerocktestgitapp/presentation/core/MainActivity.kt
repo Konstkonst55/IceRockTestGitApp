@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        val isEntered = savedInstanceState?.getBoolean("IS_ENTERED_KEY")
+        val isEntered = savedInstanceState?.getBoolean(Constants.ENTERED_KEY)
         if (isEntered == null || isEntered == false) authorizationWithTokenFromStorage()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         if (navController.currentDestination != navController.findDestination(R.id.splashFragment)) {
-            outState.putBoolean("IS_ENTERED_KEY", true)
+            outState.putBoolean(Constants.ENTERED_KEY, true)
         }
         super.onSaveInstanceState(outState)
     }

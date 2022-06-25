@@ -78,4 +78,13 @@
         <item name="android:textColor">@color/red_error</item>
         <item name="rippleColor">@color/red_ripple</item>
     </style>
+
+    <style name="tb_style" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:background">@color/gray</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:theme">@style/tb_style</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
 </resources>

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,9 +15,7 @@ import com.example.icerocktestgitapp.databinding.FragmentAuthBinding
 import com.example.icerocktestgitapp.presentation.core.MainActivity
 import com.example.icerocktestgitapp.utils.bindTextTwoWay
 import com.example.icerocktestgitapp.utils.navigateToRepoList
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
 
@@ -69,9 +66,9 @@ class AuthFragment : Fragment() {
                         is AuthViewModel.Action.RouteToMain -> navigateToRepoList()
                         is AuthViewModel.Action.ShowError -> {
                             AlertDialog.Builder(requireContext(), R.style.alert_dialog)
-                                .setPositiveButton("ok") { _, _ -> }
+                                .setPositiveButton(R.string.pos_b) { _, _ -> }
                                 .setMessage(it.message)
-                                .setTitle("Error")
+                                .setTitle(R.string.title)
                                 .create()
                                 .show()
                         }

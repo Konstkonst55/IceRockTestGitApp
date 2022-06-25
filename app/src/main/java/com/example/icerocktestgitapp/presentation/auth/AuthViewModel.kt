@@ -3,6 +3,7 @@ package com.example.icerocktestgitapp.presentation.auth
 import androidx.lifecycle.*
 import com.example.icerocktestgitapp.data.resources.Resource
 import com.example.icerocktestgitapp.data.repository.IAuth
+import com.example.icerocktestgitapp.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
@@ -40,10 +41,9 @@ class AuthViewModel @Inject constructor(
     }
 
     private fun String.validateToken() : ValidationState{
-        val pattern = "^[a-zA-Z0-9_-]{0,45}\$"
         return if (this.isEmpty()) ValidationState.EMPTY
         else{
-            val matcher = Pattern.compile(pattern).matcher(this)
+            val matcher = Pattern.compile(Constants.TOKEN_VALID_PATTERN).matcher(this)
             if(matcher.matches()) ValidationState.VALID
             else ValidationState.INVALID
         }
@@ -85,8 +85,8 @@ class AuthViewModel @Inject constructor(
     }
 
     enum class ValidationState(val reason: String){
-        EMPTY("Empty input"),
-        INVALID("Invalid input"),
-        VALID("Valid input")
+        EMPTY(Constants.VALIDATION_EMPTY),
+        INVALID(Constants.VALIDATION_INVALID),
+        VALID(Constants.VALIDATION_VALID)
     }
 }

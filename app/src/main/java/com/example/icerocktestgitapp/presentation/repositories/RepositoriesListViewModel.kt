@@ -8,6 +8,7 @@ import com.example.icerocktestgitapp.data.models.Repo
 import com.example.icerocktestgitapp.data.repository.IReposDetails
 import com.example.icerocktestgitapp.data.resources.Resource
 import com.example.icerocktestgitapp.presentation.auth.AuthViewModel
+import com.example.icerocktestgitapp.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,7 +38,7 @@ class RepositoriesListViewModel @Inject constructor(
                     else _state.value = State.Loaded(res.data)
                 }
                 is Resource.Error -> {
-                    if(res.message == "No internet connection") _state.value = State.ConnectionError
+                    if(res.message == Constants.CONNECTION_ERROR) _state.value = State.ConnectionError
                     else _state.value = State.Error(res.message!!)
                 }
             }

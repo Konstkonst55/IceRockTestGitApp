@@ -26,7 +26,7 @@ object RetrofitRequestUtils{
         }catch (e: SerializationException){
             Resource.Error("Data from server unreadable")
         }catch (e: UnknownHostException){
-            Resource.Error("No internet connection")
+            Resource.Error(Constants.CONNECTION_ERROR)
         }catch (e: CancellationException){
             Resource.Error("Cancelled")
         }catch (e: Exception){
@@ -47,13 +47,13 @@ object RetrofitRequestUtils{
                 }
                 return Resource.Error("Empty readme")
             }
-            return Resource.Error("No README file", code = response.code())
+            return Resource.Error("No README.md", code = response.code())
         }catch (e: UnknownHostException){
-            return Resource.Error("No internet connection to get README")
+            return Resource.Error(Constants.README_CONNECTION_ERROR)
         }catch (e:IOException){
-            return Resource.Error("No README file")
+            return Resource.Error("No README.md")
         }catch (e:OutOfMemoryError){
-            return Resource.Error("No README file")
+            return Resource.Error("No README.md")
         }
     }
 }

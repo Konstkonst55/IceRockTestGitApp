@@ -25,6 +25,11 @@
     <string name="repos_stars">stars</string>
     <string name="repos_forks">forks</string>
     <string name="repos_watchers">watchers</string>
+    <string name="no_readme">No README.md</string>
+    <string name="open_error">Could not open the link</string>
+    <!--alert_dialog-->
+    <string name="title">Error</string>
+    <string name="pos_b">OK</string>
     <!--headers-->
     <string name="repo_list_header">Repositories</string>
 </resources>

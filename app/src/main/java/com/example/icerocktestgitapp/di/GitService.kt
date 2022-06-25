@@ -4,6 +4,7 @@ import com.example.icerocktestgitapp.data.network.IGitApiService
 import com.example.icerocktestgitapp.data.network.interceptor.AcceptInterceptor
 import com.example.icerocktestgitapp.data.network.interceptor.AuthInterceptor
 import com.example.icerocktestgitapp.data.storage.KeyValueStorage
+import com.example.icerocktestgitapp.utils.Constants
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -20,10 +21,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class GitService {
-    private val baseUrl = "https://api.github.com"
-    private val json = Json { ignoreUnknownKeys = true }
-    private val mediaType = MediaType.get("application/json; charset=utf-8")
-
     @AuthInterceptorOkHttpClient
     @Singleton
     @Provides
@@ -46,16 +43,6 @@ class GitService {
             .build()
     }
 
-//    @ExperimentalSerializationApi
-//    @Singleton
-//    @Provides
-//    fun provideApi() : IGitApiService =
-//        Retrofit.Builder()
-//            .baseUrl(baseUrl)
-//            .addConverterFactory(json.asConverterFactory(mediaType))
-//            .build()
-//            .create(IGitApiService::class.java)
-
     @Singleton
     @Provides
     fun provideJson(): Json{
@@ -68,10 +55,9 @@ class GitService {
     @Provides
     @kotlinx.serialization.ExperimentalSerializationApi
     fun provideAPIService(client: OkHttpClient, json: Json): IGitApiService {
-
-        val contentType = MediaType.get("application/json")
+        val contentType = MediaType.get(Constants.MEDIA_TYPE)
         val retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(json.asConverterFactory(contentType))
             .client(client)
             .build()

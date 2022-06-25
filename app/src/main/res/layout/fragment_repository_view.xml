@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRepoInfoScroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -241,18 +242,60 @@
                 clStars,
                 clWatchers,
                 clForks"/>
+
+            <TextView
+                android:id="@+id/tv_readme"
+                android:layout_width="@dimen/null_size"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_repo_flow"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@id/glEnd"
+                app:layout_constraintStart_toEndOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/clStars"/>
+
+            <ProgressBar
+                android:id="@+id/pbReadme"
+                android:layout_width="@dimen/pb_size_repo_info"
+                android:layout_height="@dimen/pb_size_repo_info"
+                style="@style/pb"
+                app:layout_constraintTop_toBottomOf="@id/clStars"
+                android:layout_marginTop="@dimen/margin_top_repo_flow"
+                app:layout_constraintStart_toEndOf="@id/glStart"
+                app:layout_constraintEnd_toStartOf="@id/glEnd"
+                android:visibility="gone"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
+    <ProgressBar
         android:id="@+id/pbReposView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/pb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/svReposMain"
-        android:indeterminate="true"
-        app:indicatorColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+    <include
+        android:id="@+id/iReadmeConError"
+        android:layout_height="@dimen/null_size"
+        android:layout_width="@dimen/null_size"
+        layout="@layout/connection_error_layout"
+        app:layout_constraintTop_toBottomOf="@+id/svReposMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/iRepoInfoConError"
+        android:layout_height="@dimen/null_size"
+        android:layout_width="@dimen/null_size"
+        layout="@layout/connection_error_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

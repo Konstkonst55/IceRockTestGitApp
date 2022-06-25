@@ -31,26 +31,33 @@ class RepositoriesListFragment : Fragment() {
     private val viewModel by viewModels<RepositoriesListViewModel>()
     private lateinit var adapter: RepoAdapter
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRepositoriesBinding.inflate(inflater, container, false)
 
-        binding.rvRepositories.addItemDecoration(
-            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL).apply {
-                setDrawable(resources.getDrawable(R.drawable.item_divider, requireContext().theme))
-            }
-        )
+        addDecoration()
+        setToolbar()
 
+        return binding.root
+    }
+
+    private fun setToolbar() {
         (requireActivity() as MainActivity).supportActionBar?.run{
             show()
             setDisplayHomeAsUpEnabled(false)
             title = getString(R.string.repo_list_header)
         }
+    }
 
-        return binding.root
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun addDecoration() {
+        binding.rvRepositories.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL).apply {
+                setDrawable(resources.getDrawable(R.drawable.item_divider, requireContext().theme))
+            }
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

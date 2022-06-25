@@ -61,6 +61,8 @@ dependencies {
     //hilt
     implementation(Deps.hiltDependencies.hilt)
     kapt(Deps.hiltDependencies.hilt_kapt)
+    //markdown
+    implementation(Deps.markdownDependencies.markwon)
     //kotlin
     implementation(Deps.kotlinDependecies.kotlinxSerialization)
 }
