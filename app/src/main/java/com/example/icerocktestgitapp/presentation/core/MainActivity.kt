@@ -100,8 +100,13 @@ class MainActivity : AppCompatActivity() {
         binding.pbMain.visibility = View.GONE
     }
 
+    private fun showProgressBar(){
+        binding.pbMain.visibility = View.VISIBLE
+    }
+
     private fun authorizationWithTokenFromStorage(){
         lifecycleScope.launch{
+            showProgressBar()
             when(val res = auth.signIn()){
                 is Resource.Success -> {
                     navigateSplashToRepoList()

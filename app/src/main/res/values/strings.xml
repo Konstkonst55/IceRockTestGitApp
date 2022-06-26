@@ -22,9 +22,9 @@
     <string name="empty_error">No repositories at the moment</string>
     <string name="something_error">Check your something</string>
     <string name="connection_error">Check your Internet connection</string>
-    <string name="repos_stars">stars</string>
-    <string name="repos_forks">forks</string>
-    <string name="repos_watchers">watchers</string>
+    <string name="repos_stars" ><![CDATA[<font color="#FAD876"><span>%1$d</span></font><font color="#FFFFFF"><span>  stars</span></font>]]></string>
+    <string name="repos_forks"><![CDATA[<font color="#6ED370"><span>%1$d</span></font><font color="#FFFFFF"><span>  forks</span></font>]]></string>
+    <string name="repos_watchers"><![CDATA[<font color="#9CFFF9"><span>%1$d</span></font><font color="#FFFFFF"><span>  watchers</span></font>]]></string>
     <string name="no_readme">No README.md</string>
     <string name="open_error">Could not open the link</string>
     <!--alert_dialog-->

@@ -39,7 +39,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"
-                android:text="https://github.com/Konstkonst55"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -70,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginTop="@dimen/margin_top_repo_info"
-                android:text="Apache 2.0"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_default_size"
@@ -79,156 +77,57 @@
                 app:layout_constraintHorizontal_bias="@dimen/bias_end"
                 app:layout_constraintStart_toEndOf="@id/tvLicenseTitle" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clStars"
+            <TextView
+                android:id="@+id/tvReposWatchers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
-                app:layout_constraintStart_toStartOf="@id/glStart"
-                app:layout_constraintEnd_toEndOf="@id/glEnd">
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="@dimen/margin_text_repo_info"
+                android:textColor="@color/blue_eye"
+                android:textSize="@dimen/font_default_size"
+                app:drawableStartCompat="@drawable/ic_watch"
+                tools:ignore="MissingConstraints" />
 
-                <ImageView
-                    android:id="@+id/ivReposStars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/cd_forks"
-                    android:src="@drawable/ic_star"
-                    android:layout_gravity="center_vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tvReposStars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20"
-                    android:textSize="@dimen/font_default_size"
-                    android:textColor="@color/yellow_star"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/margin_text_repo_info"
-                    app:layout_constraintStart_toEndOf="@+id/ivReposStars"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tvReposStarsLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_text_repo_info"
-                    android:textSize="@dimen/font_default_size"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/repos_stars"
-                    app:layout_constraintStart_toEndOf="@+id/tvReposStars"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clForks"
+            <TextView
+                android:id="@+id/tvReposStars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
-                app:layout_constraintStart_toStartOf="@id/glStart"
-                app:layout_constraintEnd_toEndOf="@id/glEnd">
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="@dimen/margin_text_repo_info"
+                android:textColor="@color/yellow_star"
+                android:textSize="@dimen/font_default_size"
+                app:drawableStartCompat="@drawable/ic_star"
+                tools:ignore="MissingConstraints" />
 
-                <ImageView
-                    android:id="@+id/ivReposForks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/cd_forks"
-                    android:src="@drawable/ic_fork"
-                    android:layout_gravity="center_vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tvReposForks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20"
-                    android:textSize="@dimen/font_default_size"
-                    android:textColor="@color/green_forks"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/margin_text_repo_info"
-                    app:layout_constraintStart_toEndOf="@+id/ivReposForks"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tvReposForksLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_text_repo_info"
-                    android:textSize="@dimen/font_default_size"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/repos_forks"
-                    app:layout_constraintStart_toEndOf="@+id/tvReposForks"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clWatchers"
+            <TextView
+                android:id="@+id/tvReposForks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
-                app:layout_constraintStart_toStartOf="@id/glStart"
-                app:layout_constraintEnd_toEndOf="@id/glEnd">
-
-                <ImageView
-                    android:id="@+id/ivReposWatchers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/cd_forks"
-                    android:src="@drawable/ic_watch"
-                    android:layout_gravity="center_vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tvReposWatchers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20"
-                    android:textSize="@dimen/font_default_size"
-                    android:textColor="@color/blue_eye"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/margin_text_repo_info"
-                    app:layout_constraintStart_toEndOf="@+id/ivReposWatchers"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tvReposWatchersLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_text_repo_info"
-                    android:textSize="@dimen/font_default_size"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/repos_watchers"
-                    app:layout_constraintStart_toEndOf="@+id/tvReposWatchers"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="@dimen/margin_text_repo_info"
+                android:textColor="@color/green_forks"
+                android:textSize="@dimen/font_default_size"
+                app:drawableStartCompat="@drawable/ic_fork"
+                tools:ignore="MissingConstraints" />
 
             <androidx.constraintlayout.helper.widget.Flow
                 android:id="@+id/fInfo"
                 android:layout_width="@dimen/null_size"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_top_repo_flow"
-                app:layout_constraintStart_toStartOf="@id/glStart"
-                app:layout_constraintEnd_toEndOf="@id/glEnd"
-                app:layout_constraintTop_toBottomOf="@id/ivLicenseIcon"
-                app:constraint_referenced_ids="clForks, clWatchers, clStars"
+                app:constraint_referenced_ids="
+                tvReposStars,
+                tvReposForks,
+                tvReposWatchers"
                 app:flow_horizontalAlign="start"
                 app:flow_horizontalBias="@dimen/bias_start"
                 app:flow_horizontalGap="@dimen/margin_default"
+                app:flow_horizontalStyle="spread_inside"
                 app:flow_verticalGap="@dimen/margin_default"
                 app:flow_wrapMode="chain"
-                app:flow_horizontalStyle="spread_inside"/>
+                app:layout_constraintEnd_toEndOf="@id/glEnd"
+                app:layout_constraintStart_toStartOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvLicenseName" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/gInfo"
@@ -239,30 +138,28 @@
                 tvLicenseName,
                 tvLicenseTitle,
                 bLinkGit,
-                clStars,
-                clWatchers,
-                clForks"/>
+                fInfo" />
 
             <TextView
                 android:id="@+id/tv_readme"
                 android:layout_width="@dimen/null_size"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_top_repo_flow"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@id/glEnd"
                 app:layout_constraintStart_toEndOf="@id/glStart"
-                app:layout_constraintTop_toBottomOf="@id/clStars"/>
+                android:layout_marginTop="@dimen/margin_top_repo_flow"
+                app:layout_constraintTop_toBottomOf="@id/tvReposWatchers"/>
 
             <ProgressBar
                 android:id="@+id/pbReadme"
+                style="@style/pb"
                 android:layout_width="@dimen/pb_size_repo_info"
                 android:layout_height="@dimen/pb_size_repo_info"
-                style="@style/pb"
-                app:layout_constraintTop_toBottomOf="@id/clStars"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/margin_top_repo_flow"
-                app:layout_constraintStart_toEndOf="@id/glStart"
                 app:layout_constraintEnd_toStartOf="@id/glEnd"
-                android:visibility="gone"/>
+                app:layout_constraintStart_toEndOf="@id/glStart"
+                app:layout_constraintTop_toBottomOf="@id/tvReposWatchers"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

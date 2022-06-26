@@ -3,6 +3,7 @@ package com.example.icerocktestgitapp.presentation.repoinfo
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -69,9 +70,9 @@ class RepositoryInfoFragment : Fragment() {
                     val readmeState = state.readmeState
                     bLinkGit.text = state.githubRepo.link
                     tvLicenseName.text = state.githubRepo.license?.name ?: "-"
-                    tvReposForks.text = state.githubRepo.forks.toString()
-                    tvReposStars.text = state.githubRepo.stars.toString()
-                    tvReposWatchers.text = state.githubRepo.watchers.toString()
+                    tvReposForks.text = Html.fromHtml(getString(R.string.repos_forks, state.githubRepo.forks))
+                    tvReposStars.text = Html.fromHtml(getString(R.string.repos_stars, state.githubRepo.stars))
+                    tvReposWatchers.text = Html.fromHtml(getString(R.string.repos_watchers, state.githubRepo.watchers))
                     bLinkGit.setOnClickListener { openLink(state.githubRepo.link) }
 
                     pbReadme.visibility = if(readmeState is RepositoryInfoViewModel.ReadmeState.Loading) View.VISIBLE else View.GONE

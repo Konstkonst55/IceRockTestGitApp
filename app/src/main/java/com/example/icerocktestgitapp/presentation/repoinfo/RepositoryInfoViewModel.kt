@@ -22,25 +22,26 @@ class RepositoryInfoViewModel @Inject constructor(
     val state: LiveData<State>
         get() = _state
 
-    fun loadRepoInfo(repoId: Int){
+    fun loadRepoInfo(repoId: Int) {
         viewModelScope.launch {
-            when(val repoRes = repo.getRepository(repoId)){
+            when (val repoRes = repo.getRepository(repoId)) {
                 is Resource.Success -> {
                     ReadmeState.Loading
-                    val readmeState = when(val readmeRes = repoRes.data!!.readme){
+                    val readmeState = when (val readmeRes = repoRes.data!!.readme) {
                         is Resource.Success -> {
                             if (readmeRes.data!!.isEmpty()) ReadmeState.Empty
                             else ReadmeState.Loaded(readmeRes.data)
                         }
                         is Resource.Error -> {
-                            if(readmeRes.message == Constants.README_CONNECTION_ERROR) ReadmeState.ConnectionError
-                            else ReadmeState.Error(readmeRes.message!!)
+                            if (repoRes.data.readme.message == Constants.README_CONNECTION_ERROR) ReadmeState.ConnectionError
+                            else ReadmeState.Error(repoRes.data.readme.message!!)
                         }
                     }
                     _state.value = State.Loaded(repoRes.data.repo, readmeState)
                 }
                 is Resource.Error -> {
-                    if(repoRes.message == Constants.CONNECTION_ERROR) _state.value = State.ConnectionError
+                    if (repoRes.message == Constants.CONNECTION_ERROR) _state.value =
+                        State.ConnectionError
                     else _state.value = State.Error(repoRes.message!!)
                 }
             }
